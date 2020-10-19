@@ -6,8 +6,13 @@ const options = {
   zoomControl: false
 };
 
+// get value from html
+const lat = document.querySelector("span[data-lat]").dataset.lat
+const lng = document.querySelector("span[data-lng]").dataset.lng
+
+
 //criando uma mapa
-const map = L.map("mapid", options).setView([-27.5952019, -48.5274819], 15);
+const map = L.map("mapid", options).setView([lat, lng], 15);
 
 // criando um tileLayer
 
@@ -20,9 +25,9 @@ const icon = L.icon({
   iconSize: [58, 68],
   iconAnchor: [29, 68],
   popupAchor: [170, 2],
-});
+})
 
-L.marker([-27.5952019, -48.5274819], { icon }).addTo(map);
+L.marker([lat,lng], { icon }).addTo(map);
 
 // galeria de images
 
